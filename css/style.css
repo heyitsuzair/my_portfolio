@@ -393,6 +393,7 @@ border-left: 10px solid var(--skin-color);
     background:var(--skin-color);
     border-radius:5px;
 }
+
 .about .about-content .skills .skill-item .skill-percent{
     position: absolute;
     right: 0;
