@@ -10,7 +10,7 @@ $(document).ready(function () {
     backSpeed: 60,
     loop: true,
   });
-  var waypoint = new Waypoint({
+  var progressBarAddWidth = new Waypoint({
     element: document.getElementById("waypoint-elem"),
     handler: function (direction) {
       let pBar = document.querySelectorAll(".progress-in");
@@ -23,5 +23,19 @@ $(document).ready(function () {
       pBar[6].setAttribute("style", "width: 90%;transition:1.3s all");
     },
     offset: "85%",
+  });
+  var progressBarRemoveWidth = new Waypoint({
+    element: document.getElementById("waypoint-elem"),
+    handler: function (direction) {
+      let pBar = document.querySelectorAll(".progress-in");
+      pBar[0].setAttribute("style", "width: 0%;");
+      pBar[1].setAttribute("style", "width: 0%;");
+      pBar[2].setAttribute("style", "width: 0%;");
+      pBar[3].setAttribute("style", "width: 0%;");
+      pBar[4].setAttribute("style", "width: 0%;");
+      pBar[5].setAttribute("style", "width: 0%;");
+      pBar[6].setAttribute("style", "width: 0%;");
+    },
+    offset: "100%",
   });
 });
