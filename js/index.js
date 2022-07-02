@@ -1,41 +1,62 @@
 $(document).ready(function () {
-  var typed = new Typed(".typing", {
-    strings: [
-      "Web Developer",
-      "Web Designer",
-      "Freelancer",
-      "WordPress Expert",
-    ],
-    typeSpeed: 100,
-    backSpeed: 60,
-    loop: true,
-  });
-  var progressBarAddWidth = new Waypoint({
-    element: document.getElementById("waypoint-elem"),
-    handler: function (direction) {
-      let pBar = document.querySelectorAll(".progress-in");
-      pBar[0].setAttribute("style", "width: 90%;transition:1.3s all");
-      pBar[1].setAttribute("style", "width: 90%;transition:1.3s all");
-      pBar[2].setAttribute("style", "width: 75%;transition:1.3s all");
-      pBar[3].setAttribute("style", "width: 85%;transition:1.3s all");
-      pBar[4].setAttribute("style", "width: 85%;transition:1.3s all");
-      pBar[5].setAttribute("style", "width: 90%;transition:1.3s all");
-      pBar[6].setAttribute("style", "width: 90%;transition:1.3s all");
-    },
-    offset: "85%",
-  });
-  var progressBarRemoveWidth = new Waypoint({
-    element: document.getElementById("waypoint-elem"),
-    handler: function (direction) {
-      let pBar = document.querySelectorAll(".progress-in");
-      pBar[0].setAttribute("style", "width: 0%;");
-      pBar[1].setAttribute("style", "width: 0%;");
-      pBar[2].setAttribute("style", "width: 0%;");
-      pBar[3].setAttribute("style", "width: 0%;");
-      pBar[4].setAttribute("style", "width: 0%;");
-      pBar[5].setAttribute("style", "width: 0%;");
-      pBar[6].setAttribute("style", "width: 0%;");
-    },
-    offset: "100%",
-  });
+  let typed;
+  let progressBarAddWidth;
+  let progressBarRemoveWidth;
+  class typedJS {
+    typing() {
+      typed = new Typed(".typing", {
+        strings: [
+          "Web Developer",
+          "Web Designer",
+          "Freelancer",
+          "WordPress Expert",
+        ],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true,
+      });
+    }
+  }
+  typedJS = new typedJS();
+  typedJS.typing();
+
+  class wayPoints {
+    addProgressWidth() {
+      progressBarAddWidth = new Waypoint({
+        element: document.getElementById("waypoint-elem"),
+        handler: function (direction) {
+          let pBar = document.querySelectorAll(".progress-in");
+          pBar[0].setAttribute("style", "width: 90%;transition:1.3s all");
+          pBar[1].setAttribute("style", "width: 90%;transition:1.3s all");
+          pBar[2].setAttribute("style", "width: 75%;transition:1.3s all");
+          pBar[3].setAttribute("style", "width: 85%;transition:1.3s all");
+          pBar[4].setAttribute("style", "width: 85%;transition:1.3s all");
+          pBar[5].setAttribute("style", "width: 90%;transition:1.3s all");
+          pBar[6].setAttribute("style", "width: 90%;transition:1.3s all");
+        },
+        offset: "85%",
+      });
+    }
+
+    progressBarRemoveWidth() {
+      progressBarRemoveWidth = new Waypoint({
+        element: document.getElementById("waypoint-elem"),
+        handler: function (direction) {
+          let pBar = document.querySelectorAll(".progress-in");
+          pBar[0].setAttribute("style", "width: 0%;");
+          pBar[1].setAttribute("style", "width: 0%;");
+          pBar[2].setAttribute("style", "width: 0%;");
+          pBar[3].setAttribute("style", "width: 0%;");
+          pBar[4].setAttribute("style", "width: 0%;");
+          pBar[5].setAttribute("style", "width: 0%;");
+          pBar[6].setAttribute("style", "width: 0%;");
+        },
+        offset: "100%",
+      });
+    }
+  }
+
+  wayPointsObj = new wayPoints();
+  wayPointsObj.addProgressWidth();
+  wayPointsObj.progressBarRemoveWidth();
 });
