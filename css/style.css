@@ -53,7 +53,33 @@ ul{
     display:block;
     opacity: 1;
     padding: 0 30px;
+    position: fixed;
+    left: 270px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
 }
+.section.back-section{
+    z-index: 1;
+}
+.section.active{
+    z-index: 1;
+    opacity: 1;
+    animation: slideSection 1s ease;
+}
+@keyframes slideSection{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
 .section .container{
     padding-top: 60px;
     padding-bottom: 70px;
@@ -91,9 +117,7 @@ ul{
 .hidden{
     display: none !important;
 }
-.main-content{
-    padding-left: 270px;
-}
+
 .padd-15{
     padding-left: 15px;
     padding-right: 15px;
@@ -141,6 +165,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 border-right: 1px solid var(--bg-black-50);
+transition: all 0.3s ease;
+
 }
 .aside .logo{
     position: absolute;
@@ -189,42 +215,21 @@ margin-top: 50px;
 .aside .nav-toggle{
     height: 40px;
     width: 45px;
-    border: 1px solid var(--bg-black-50);
+    border: 1px solid var(--skin-color);
     cursor: pointer;
     position: fixed;
     left: 300px;
     top: 20px;
+
     border-radius: 3px;
     background: var(--bg-black-100);
     display: none;
     align-items: center;
     justify-content: center;
+    color: var(--skin-color);
+    transition: all 0.3s ease;
 }
-.aside .nav-toggle span{
-    height: 2px;
-    width: 18px;
-    background: var(--skin-color);
-    display: inline-block;
-    position: relative;
-}
-.aside .nav-toggle span::before{
-    content: '';
-    height: 2px;
-    width: 18px;
-    background: var(--skin-color);
-    position: absolute;
-    top: -6px;
-    left: 0;
-}
-.aside .nav-toggle span::after{
-    content: '';
-    height: 2px;
-    width: 18px;
-    background: var(--skin-color);
-    position: absolute;
-    top: 6px;
-    left: 0;
-}
+
 .aside .nav li{
 
     margin-bottom: 20px;
@@ -339,7 +344,6 @@ border-left: 10px solid var(--skin-color);
     margin-top: 30px;
 }
 .about .about-content .personal-info .buttons btn{
-    margin-right: 13px;
     margin-top: 10px;
 }
 .about .about-content .skills{
@@ -641,8 +645,21 @@ display: block;
     .aside{
         left: -270px;
     }
-    .main-content{
-        padding-left: 0;
+    .aside.open{
+        left: 0;
+    }
+    .aside .nav-toggle{
+        display: flex;
+        left: 30px;
+    }
+    .aside .nav-toggle.open{
+       left: 300px;
+    }
+    .section{
+        left:0;
+    }
+    .section.open{
+        left: 270px;
     }
     .about .about-content .personal-info .info-item p span{
         display: block;
