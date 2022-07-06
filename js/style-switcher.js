@@ -1,14 +1,30 @@
 // Toggle Style Switcher
 const styleSwitcherToggle = document.querySelector(".style-switcher-toggle");
+// Open Style Switcher
 $(styleSwitcherToggle).on("click", function () {
   document.querySelector(".style-switcher").classList.toggle("open");
 });
+
 // Hide Style Switcher
-$(window).scroll(function () {
+
+// If clicked On Body
+$(".section").on("click", function () {
+  if ($(".style-switcher").hasClass("open")) {
+    $(".style-switcher").removeClass("open");
+  }
+});
+$(".aside").on("click", function () {
+  if ($(".style-switcher").hasClass("open")) {
+    $(".style-switcher").removeClass("open");
+  }
+});
+// If Scrolled
+$(".section").on("scroll", function () {
   if (document.querySelector(".style-switcher").classList.contains("open")) {
     document.querySelector(".style-switcher").classList.remove("open");
   }
 });
+
 //   Theme Colors
 const alternateStyles = document.querySelectorAll(".alternate-style");
 
