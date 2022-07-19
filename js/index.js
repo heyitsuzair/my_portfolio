@@ -7,8 +7,8 @@ $(document).ready(function () {
     typing() {
       typed = new Typed(".typing", {
         strings: [
-          "Mern Stack Developer",
           "Full Stack Web Developer",
+          "Mern Stack Developer",
           "Web Designer",
           "Freelancer",
           "WordPress Expert",
