@@ -8,6 +8,7 @@ $(document).ready(function () {
       typed = new Typed(".typing", {
         strings: [
           "Software Enginner",
+          "NEXT JS Core Contributor",
           "Mern Stack Developer",
           "Mobile App Developer",
           "Web Designer",
